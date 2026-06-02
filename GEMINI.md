@@ -28,3 +28,8 @@ my-tiny-gpt2/
     ├── model.py               # PyTorch 모델 (Head, MultiHeadAttention, FeedForward, Block, GPTLanguageModel)
     ├── train.py               # 모델 학습 루프 및 체크포인트 저장
     └── generate.py            # 학습된 가중치 로드 및 텍스트 생성 추론 스크립트
+
+## 4. 필수 워크플로우 (Mandatory Workflows)
+* **대화 기록 자동화**: 매 세션 시작 시 또는 대화 중에 `conversation_history/` 폴더에 대화 내용을 기록한다.
+* **파일명 규칙**: `conversation_history_MMDDHHmm.md` (월일시분) 형식으로 저장한다.
+* **자동 실행**: 사용자가 요청하지 않아도 새로운 세션이나 주요 작업 단계에서 해당 파일을 생성/업데이트하여 기록을 보존한다.
