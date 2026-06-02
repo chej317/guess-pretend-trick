@@ -78,4 +78,3 @@ python -m src.generate --checkpoint checkpoints/gpt_checkpoint_5000.pt --start_t
 **Output:**  
 > *"Once upon a time, there was a boy named Tim. Timmy and his friend said "Mom, I am the other day!", "Mom, kiss it or d..."* (학습 단계에 따라 지속적으로 품질이 향상됨)
 
----
