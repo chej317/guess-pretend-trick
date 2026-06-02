@@ -79,7 +79,3 @@ python -m src.generate --checkpoint checkpoints/gpt_checkpoint_5000.pt --start_t
 > *"Once upon a time, there was a boy named Tim. Timmy and his friend said "Mom, I am the other day!", "Mom, kiss it or d..."* (학습 단계에 따라 지속적으로 품질이 향상됨)
 
 ---
-
-## 💡 6. 결론 및 향후 과제
-- **결론**: Transformer의 핵심인 Self-Attention 메커니즘을 직접 구현함으로써 대규모 언어 모델의 작동 원리를 깊이 있게 이해함.
-- **향후 과제**: Byte-Pair Encoding (BPE) 도입을 통한 토크나이징 고도화, 더 큰 데이터셋(OpenWebText 등)으로의 확장.
