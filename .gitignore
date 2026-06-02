@@ -9,3 +9,7 @@ checkpoints/
 .DS_Store
 .ipynb_checkpoints/
 .vscode/
+# Hugging Face 및 로컬 데이터셋 폴더 제외
+data/
+.cache/
+터미널대화.html

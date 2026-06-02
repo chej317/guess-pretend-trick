@@ -94,9 +94,12 @@ def train(config: GPTConfig) -> None:
 
             # Evaluation and Checkpoint
             if step % config.eval_interval == 0 or step == config.max_iters:
+                print(f"\n🔍 Step {step}: Starting evaluation...", end="", flush=True)
                 val_loss = estimate_loss(model, val_loader, config.device, config.eval_iters)
                 elapsed = time.time() - start_time
-                print(f"\n✅ Step {step:5d} | Train Loss: {loss.item():.4f} | Val Loss: {val_loss:.4f} | Time: {elapsed:.1f}s")
+                print(f"\r✅ Step {step:5d} | Train Loss: {loss.item():.4f} | Val Loss: {val_loss:.4f} | Time: {elapsed:.1f}s")
+                
+                print(f"💾 Saving checkpoint to {config.output_dir}...", end="", flush=True)
                 checkpoint_path = os.path.join(config.output_dir, f"gpt_checkpoint_{step}.pt")
                 torch.save(
                     {
@@ -107,7 +110,7 @@ def train(config: GPTConfig) -> None:
                     },
                     checkpoint_path,
                 )
-                print(f"💾 Saved checkpoint: {checkpoint_path}")
+                print(f"\r💾 Saved checkpoint: {checkpoint_path}          ")
 
             if step >= config.max_iters:
                 break

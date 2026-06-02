@@ -10,8 +10,8 @@ class GPTConfig:
     block_size: int = 128             # Increased for English stories
     batch_size: int = 64
     max_iters: int = 5000             # Increased for better learning
-    eval_interval: int = 500
-    eval_iters: int = 200
+    eval_interval: int = 100
+    eval_iters: int = 100
     learning_rate: float = 3e-4
     device: str = "cuda" if torch.cuda.is_available() else "cpu"
     n_embd: int = 192                 # Slightly larger model for English
