@@ -49,7 +49,20 @@ src/
 
 ---
 
-## 🚀 4. 시작하기 (Quick Start)
+## 🤖 4. AI 협업 및 투명성 (AI Collaboration & Transparency)
+
+본 프로젝트는 최신 소프트웨어 개발 패러다임에 맞춰 **AI(Gemini CLI)를 보조 개발 도구 및 프로젝트 오케스트레이터로 활용**했습니다. 
+
+단순히 AI가 생성한 코드를 사용하는 것에 그치지 않고, 다음과 같은 원칙을 지키며 협업했습니다:
+- **과정의 투명성**: AI와의 모든 기술적 논의, 버그 수정 과정, 아키텍처 결정 사항을 `conversation_history/` 폴더에 가감 없이 기록하여 공개합니다.
+- **주도적 설계**: AI는 코드 구현의 효율성을 높이는 도구로 활용되었으며, 전체적인 프로젝트 방향성과 모듈화 구조는 학습 목표에 맞춰 주도적으로 설계되었습니다.
+- **학습 도구화**: 복잡한 개념(Self-Attention, Residual Connection 등)을 코드로 구현하는 과정에서 AI와 질의응답을 주고받으며 학습의 깊이를 더했습니다.
+
+이러한 기록은 본 프로젝트가 단순한 결과물이 아니라, **'인간과 AI의 협업을 통한 학습의 여정'**임을 증명합니다.
+
+---
+
+## 🚀 5. 시작하기 (Quick Start)
 
 ### 환경 설정
 ```bash
@@ -70,7 +83,7 @@ python -m src.generate --checkpoint checkpoints/gpt_checkpoint_5000.pt --start_t
 
 ---
 
-## 📊 5. 결과 예시 (Sample Output)
+## 📊 6. 결과 예시 (Sample Output)
 
 `Tiny GPT (approx. 13M params)` 모델이 생성한 결과입니다:
 
