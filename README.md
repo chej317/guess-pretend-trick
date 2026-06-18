@@ -18,6 +18,47 @@
 5. **`notebook_05`**: Single-Head Masked Self-Attention (Attention 메커니즘의 이해)
 6. **`notebook_06`**: **Tiny GPT 완성** (Multi-head Attention, FeedForward, Residual, LayerNorm 통합)
 
+### 🏗️ Tiny GPT 아키텍처 요약 (from `notebook_06`)
+
+`notebook_06`에서 완성된 Tiny GPT의 내부 구조를 요약하면 다음과 같습니다. 이 구조는 현대적인 Transformer Decoder의 표준을 따릅니다.
+
+```mermaid
+graph TD
+    subgraph "Tiny GPT Architecture"
+        direction TB
+        Input([Input: Characters]) --> TokenEmb[Token Embedding]
+        Input --> PosEmb[Positional Embedding]
+        TokenEmb --> AddEmb[+]
+        PosEmb --> AddEmb
+        
+        subgraph "Transformer Block (x N)"
+            direction TB
+            BlockIn[ ] --> LN1[Layer Norm]
+            LN1 --> MHA[Multi-Head Self-Attention]
+            MHA --> Res1[+]
+            BlockIn -.-> Res1
+            
+            Res1 --> LN2[Layer Norm]
+            LN2 --> FFN[Feed Forward Network]
+            FFN --> Res2[+]
+            Res1 -.-> Res2
+        end
+        
+        AddEmb --> BlockIn
+        Res2 --> LNF[Final Layer Norm]
+        LNF --> Head[LM Head: Linear]
+        Head --> Output([Output: Logits])
+    end
+
+    style Input fill:#f0f7ff,stroke:#005cc5
+    style Output fill:#f0f7ff,stroke:#005cc5
+    style MHA fill:#fffbe6,stroke:#e3ab00
+    style FFN fill:#fffbe6,stroke:#e3ab00
+    style AddEmb fill:#f6f8fa,stroke:#24292e
+    style Res1 fill:#f6f8fa,stroke:#24292e
+    style Res2 fill:#f6f8fa,stroke:#24292e
+```
+
 ---
 
 ## 🛠️ 2. 기술적 사양 (Technical Architecture)
