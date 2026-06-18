@@ -73,6 +73,7 @@ def train(config: GPTConfig) -> None:
 
     optimizer = AdamW(model.parameters(), lr=config.learning_rate)
     os.makedirs(config.output_dir, exist_ok=True)
+
     step = 0
     start_time = time.time()
 

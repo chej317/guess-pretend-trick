@@ -83,11 +83,27 @@ python -m src.generate --checkpoint checkpoints/gpt_checkpoint_5000.pt --start_t
 
 ---
 
-## 📊 6. 결과 예시 (Sample Output)
+## 📈 6. 지능의 진화 (Evolution of Intelligence)
 
-`Tiny GPT (approx. 13M params)` 모델이 생성한 결과입니다:
+본 프로젝트의 가장 큰 특징은 학습 단계별로 모델의 '지능'이 어떻게 발달하는지 직접 관찰할 수 있다는 점입니다. 
 
-**Prompt:** `"Once upon a time,"`  
-**Output:**  
-> *"Once upon a time, there was a boy named Tim. Timmy and his friend said "Mom, I am the other day!", "Mom, kiss it or d..."* (학습 단계에 따라 지속적으로 품질이 향상됨)
+### 학습 단계별 생성 결과 비교 (Sample Comparison)
+
+| 학습 단계 (Step) | 생성 결과 (Prompt: "Once upon a time,") | 특징 |
+| :--- | :--- | :--- |
+| **Step 0** | `j#$! 1a*& ...` | 무작위 문자열 생성 (지능 없음) |
+| **Step 1000** | `Once upon a time, the boy and the mom go ...` | 기본적인 단어 조합 및 문법 구조 습득 |
+| **Step 5000** | `Once upon a time, there was a little girl who loved to play in the park...` | 문맥이 유지되는 자연스러운 문장 생성 |
+
+> **Note**: 위 결과는 예시이며, 실제 결과는 `src/compare.py` 스크립트를 통해 직접 확인할 수 있습니다.
+
+---
+
+## 🛠️ 7. 유틸리티 활용법 (Utility Scripts)
+
+### 체크포인트 비교 (Compare Checkpoints)
+여러 학습 단계의 모델들을 동일한 프롬프트로 한눈에 비교합니다.
+```bash
+python -m src.compare --steps 100 1000 5000 --prompt "Once upon a time,"
+```
 
