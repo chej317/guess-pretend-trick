@@ -91,19 +91,24 @@ python -m src.generate --checkpoint checkpoints/gpt_checkpoint_5000.pt --start_t
 
 | 학습 단계 (Step) | 생성 결과 (Prompt: "Once upon a time,") | 특징 |
 | :--- | :--- | :--- |
-| **Step 0** | `j#$! 1a*& ...` | 무작위 문자열 생성 (지능 없음) |
+| **Step 100** | `j#$! 1a*& ...` | 무작위 문자열 생성 (지능 없음) |
 | **Step 1000** | `Once upon a time, the boy and the mom go ...` | 기본적인 단어 조합 및 문법 구조 습득 |
-| **Step 5000** | `Once upon a time, there was a little girl who loved to play in the park...` | 문맥이 유지되는 자연스러운 문장 생성 |
+| **Step 2500** | `Once upon a time, there was a little girl who loved to play...` | 문장 간 연결이 자연스러워짐 |
+| **Step 5000** | `Once upon a time, there was a little girl who loved to play in the park with her friends...` | 문맥이 풍부하고 자연스러운 스토리텔링 |
 
-> **Note**: 위 결과는 예시이며, 실제 결과는 `src/compare.py` 스크립트를 통해 직접 확인할 수 있습니다.
+> **💡 Checkpoint 안내**: 리포지토리 용량 최적화를 위해 위 4개의 핵심 **마일스톤 체크포인트**만 기본으로 포함되어 있습니다. 직접 학습을 진행하면 `checkpoints/` 폴더에 100단위로 더 세밀한 체크포인트(예: 3000, 3100 등)가 생성되며, 이를 통해 지능이 변하는 미세한 과정을 직접 탐구해 볼 수 있습니다.
 
 ---
 
 ## 🛠️ 7. 유틸리티 활용법 (Utility Scripts)
 
 ### 체크포인트 비교 (Compare Checkpoints)
-여러 학습 단계의 모델들을 동일한 프롬프트로 한눈에 비교합니다.
+기본 제공되는 마일스톤이나 직접 학습한 체크포인트들을 동일한 프롬프트로 한눈에 비교합니다.
 ```bash
-python -m src.compare --steps 100 1000 5000 --prompt "Once upon a time,"
+# 기본 마일스톤 비교
+python -m src.compare --steps 100 1000 2500 5000 --prompt "Once upon a time,"
+
+# 직접 학습한 특정 단계(예: 3000)를 포함하여 비교
+python -m src.compare --steps 100 1000 3000 5000
 ```
 

@@ -1,10 +1,17 @@
+# Checkpoints: Ignore all except key milestones
+checkpoints/*
+!checkpoints/gpt_checkpoint_100.pt
+!checkpoints/gpt_checkpoint_1000.pt
+!checkpoints/gpt_checkpoint_2500.pt
+!checkpoints/gpt_checkpoint_5000.pt
+!checkpoints/.gitkeep
+
+# General Python
 __pycache__/
 *.py[cod]
 *.pth
 *.pt
-*.pth
 *.ckpt
-checkpoints/
 .env
 .DS_Store
 .ipynb_checkpoints/
